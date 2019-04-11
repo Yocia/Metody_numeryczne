@@ -1,0 +1,46 @@
+def countField(fig):
+    if fig[0] == "circle":
+        if(fig[1]<0):
+            print("Your first number must be higher than 0")
+        elif(len(fig)==2):
+            field = 3.14 * fig[1] ** 2
+            return field
+        else:
+            return -1
+    elif fig[0] == "rectangle":
+        if(fig[1]<0 or fig[2]<0):
+            print("Your first numbers must be higher than 0")
+        elif(len(fig)==3):
+            field = fig[1] * fig[2]
+            return field
+        else:
+            return -1
+    elif fig[0] == "triangle" or fig[0] == "rhombus":
+        if(len(fig)==3):
+            if(fig[1]<0 or fig[2]<0):
+                print("Your first numbesr must be higher than 0")
+            else:
+                field = fig[1]*fig[2]/2
+                return field
+        else:
+            return -1
+    else:
+        print("Wrong type")
+        return -1
+    
+def compare(fig1 , fig2):
+    x = countField(fig1)
+    y = countField(fig2)
+    if x == -1 or y == -1:
+        print("One of the figures has wrong number of arguments")
+    else:
+        if x > y:
+            print("The first figure has larger field")
+        elif x < y:
+            print("The second figure has larger field")
+        else:
+            print("The fields are equal")
+try:
+    compare(['rhombus',1],['circle',0.5])
+except(TypeError):
+    print("Zla liczba parametrow")
